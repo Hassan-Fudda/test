@@ -1,8 +1,19 @@
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button,space } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from 'react-router-dom';
 import {useState} from 'react';
+import "./Style.css";
+import {db} from '../firebase';
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+
 
 function SignUp() {
   const [email , setEmail]=useState("");
@@ -26,7 +37,9 @@ function SignUp() {
   });
 }   
   return (
+    <div className="container">
     <Form
+    wrapperCol={{ span: 8 , offset: 8 }}
     name="normal_login"
     className="login-form"
     initialValues={{
@@ -82,7 +95,8 @@ function SignUp() {
       </Button>
       Have an account? <Link to="/">Log In</Link>
     </Form.Item>
-  </Form>  
+  </Form>
+  </div>  
   )
 };
 

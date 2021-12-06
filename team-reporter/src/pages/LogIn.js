@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
 import {useState , useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
+import "./Style.css";
+
 
 function LogIn() {
   const navigate = useNavigate();
@@ -39,7 +41,9 @@ signInWithEmailAndPassword(auth, email, pass)
   });
   }
   return (
+    <div className="container">
       <Form
+      wrapperCol={{ span: 8 , offset: 8 }}
       name="normal_login"
       className="login-form"
       initialValues={{
@@ -84,7 +88,8 @@ signInWithEmailAndPassword(auth, email, pass)
         </Button>
           Not have Account? <Link to="SignUp">register now!</Link>
       </Form.Item>
-    </Form>  
+    </Form> 
+    </div> 
     )
   };
   
